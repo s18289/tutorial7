@@ -15,6 +15,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using tutorial7.Handlers;
+using tutorial7.Services;
 
 namespace tutorial7
 {
@@ -47,9 +48,9 @@ namespace tutorial7
 
             // another way to do
 
-           /* services.AddAuthentication("AuthenticationBasic")
-                    .AddScheme<AuthenticationSchemeOptions, BasicAuthHandler>("AuthenticationBasic", null);*/
-
+            /* services.AddAuthentication("AuthenticationBasic")
+                     .AddScheme<AuthenticationSchemeOptions, BasicAuthHandler>("AuthenticationBasic", null);*/
+            services.AddSingleton<IStudentDbService, StudentDbService>();
             services.AddControllers();
         }
 
